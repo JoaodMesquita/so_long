@@ -6,26 +6,15 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 10:13:30 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/09 14:01:29 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/10 14:14:16 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	initialize(t_map *map)
-{
-	map->width = 0;
-	map->height = 0;
-	map->collectable = 0;
-	map->design = NULL;
-	map->player = 0;
-	map->floor = 0;
-	map->exit = 0;
-}
-
 void	map_height(char *file_name, t_map *map)
 {
-	int	fd;
+	int		fd;
 	char	*line;
 
 	fd = open(file_name, O_RDONLY);
@@ -35,7 +24,7 @@ void	map_height(char *file_name, t_map *map)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
-			break;
+			break ;
 		free(line);
 		map->height++;
 	}
@@ -50,23 +39,74 @@ void	map_read(char *file_name, t_map *map)
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
 		return ;
-	map->design = malloc((map->height - 1) * sizeof(char *));
+	map->design = malloc(map->height * sizeof(char *));
 	if (!map->design)
 	{
 		close (fd);
 		return ;
 	}
 	i = 0;
-	while ((map->design[i] = get_next_line(fd)))
+	map->design[i] = get_next_line(fd);
+	while ((map->design[i]))
+	{
 		i++;
-	map->design = NULL;
+		map->design[i] = get_next_line(fd);
+	}
 	close(fd);
 }
 
-int map_shape(t_map *map)
+int	map_shape(t_map *map)
 {
-	int i;
+	int	i;
+	int	width;
 
 	i = 0;
-	while(i < )
+	while (i < map->height)
+	{
+		str_trim(map->design[i]);
+		i++;
+	}
+	i = 0;
+	width = ft_strlen(map->design[i]);
+	while (i < map->height)
+	{
+		if ((width != ft_strlen(map->design[i]) && (map->design[i] != NULL)))
+		{
+			ft_printf("Erro\nMap is not rectangular.\n");
+			return (0);
+		}
+		i++;
+	}
+	map->width = width;
+	if ((map->width < 5 && map->height < 3) || (map->width < 3 && map->height < 5))
+	{
+		ft_printf("Error\nMap is not rectangular.\n");
+		return (0);
+	}
+	return (1);
+}
+
+int	check_map(int ac, char **av)
+{
+	t_map	map;
+
+	if (!check_args(ac))
+		return (0);
+	if (!check_map_name(av[1]))
+		return (0);
+	initialize(&map);
+	map_height(av[1], &map);
+	map_read(av[1], &map);
+	if (!map_shape(&map))
+		return (0);
+	if (!check_min_characters(&map))
+		return (0);
+	if (!check_characters(&map))
+		return (0);
+	if (!walls(&map))
+	{
+		ft_printf("Error\nInvalid Walls\n");
+		return (1);
+	}
+	return (1);
 }

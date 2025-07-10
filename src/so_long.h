@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 10:36:51 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/09 12:48:29 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/10 12:05:15 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,12 @@ int		check_map(int ac, char **av);
 int		check_args(int ac);
 int		check_map_name(char *file_name);
 int		check_min_characters(t_map *map);
+int		check_characters(t_map *map);
 void	initialize(t_map *map);
 void	map_height(char *file_name, t_map *map);
 void	map_read(char *file_name, t_map *map);
+int		walls(t_map *map);
+int		map_shape(t_map *map);
+void	str_trim(char *str);
 
 #endif
