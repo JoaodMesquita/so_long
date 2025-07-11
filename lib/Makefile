@@ -6,7 +6,7 @@
 #    By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/02 10:12:33 by joapedro          #+#    #+#              #
-#    Updated: 2025/07/08 14:25:30 by joapedro         ###   ########.fr        #
+#    Updated: 2025/07/11 15:40:18 by joapedro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC = cc
 
 RM = rm -f
 
-CCFLAGS = -Wall -Werror -Wextra
+CCFLAGS = -Wall -Werror -Wextra -g
 
 all: $(NAME)
 

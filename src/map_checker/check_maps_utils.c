@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 09:29:31 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/10 12:02:08 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:58:49 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	initialize(t_map *map)
 	map->player = 0;
 	map->floor = 0;
 	map->exit = 0;
+	map->start_x = 0;
+	map->start_y = 0;
 }
 
 void str_trim(char *str)
@@ -34,4 +36,20 @@ void str_trim(char *str)
 			str[i] = '\0';
 		i++;
 	}
+}
+
+void free_map(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	if (!map->design)
+		return ;
+	while (i < map->height)
+	{
+		if (map->design[i])
+			free(map->design[i]);
+		i++;
+	}
+	free(map->design);
 }

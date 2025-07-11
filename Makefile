@@ -6,14 +6,14 @@
 #    By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/20 10:37:04 by joapedro          #+#    #+#              #
-#    Updated: 2025/07/08 14:25:44 by joapedro         ###   ########.fr        #
+#    Updated: 2025/07/11 14:14:59 by joapedro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = so_long
 
-SRC = src/main.c src/events.c src/map_checker/parsing.c src/map_checker/check_map.c src/map_checker/check_maps_utils.c 
+SRC = src/main.c src/events.c src/map_checker/parsing.c src/map_checker/check_map.c src/map_checker/check_maps_utils.c src/map_checker/valid_path.c 
 OBJS := $(SRC:%.c=%.o)
 
 CC = cc

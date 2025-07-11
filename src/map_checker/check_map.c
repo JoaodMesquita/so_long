@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 09:25:47 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/10 10:54:38 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:17:26 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	check_min_characters(t_map *map)
 	int	y;
 
 	y = 0;
-	while (y < map->height)
+	while (y < map->height - 1)
 	{
 		x = 0;
-		while (x < map->width)
+		while (x < map->width - 1)
 		{
 			if (map->design[y][x] == 'C')
 				map->collectable++;
@@ -79,18 +79,18 @@ int	walls(t_map *map)
 	int	y;
 
 	y = 0;
-	while (y < map->height -1)
+	while (y < map->height - 1)
 	{
 		x = 0;
-		while (x < map-> width -1)
+		while (x < map-> width - 1)
 		{
 			if (map->design[y][0] != '1')
 				return (0);
-			if (map->design[y][map->width -1] != '1')
+			if (map->design[y][map->width - 1] != '1')
 				return (0);
 			if (map->design[0][x] != '1')
 				return (0);
-			if (map->design[map->height -1][x] != '1')
+			if (map->design[map->height - 1][x] != '1')
 				return (0);
 			x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 10:13:30 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/10 14:14:16 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:57:18 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,10 @@ void	map_read(char *file_name, t_map *map)
 		return ;
 	}
 	i = 0;
-	map->design[i] = get_next_line(fd);
-	while ((map->design[i]))
+	while (i < map->height)
 	{
-		i++;
 		map->design[i] = get_next_line(fd);
+		i++;
 	}
 	close(fd);
 }
@@ -108,5 +107,8 @@ int	check_map(int ac, char **av)
 		ft_printf("Error\nInvalid Walls\n");
 		return (1);
 	}
+	if (!valid_exit(&map, av[1]))
+		return (0);
 	return (1);
 }
+

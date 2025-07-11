@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 10:36:51 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/10 12:05:15 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:46:40 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_map
 	int	player;
 	int	exit;
 	int	floor;
+	int	start_x;
+	int	start_y;
 	char	**design;
 }			t_map;
 
@@ -70,5 +72,9 @@ void	map_read(char *file_name, t_map *map);
 int		walls(t_map *map);
 int		map_shape(t_map *map);
 void	str_trim(char *str);
+int		valid_exit(t_map *map, char *file_name);
+void	player_position(t_map *map);
+void	flood_fill(t_map *map, int x, int y);
+void	free_map(t_map *map);
 
 #endif
