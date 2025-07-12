@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 12:38:06 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/10 14:00:52 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:22:29 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int		ft_puthexa(unsigned long n);
 int		ft_puthexa_big(unsigned long n);
 int		ft_pointer(void *ptr);
 char	*get_next_line(int fd);
-int		gnl_ft_strlen(char *s);
+int		gnlstrlen(char *s);
 char	*gnl_ft_strchr(char *s, int c);
 char	*ft_strjoin(char *line, char *read_buffer);
 void	shift(char *read_buffer);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strchr(const char *s, int c);
-int	ft_strlen(const char *s);
+int		ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strstr(char *str, char *to_find);
