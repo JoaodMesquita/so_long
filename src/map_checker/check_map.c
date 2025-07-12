@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 09:25:47 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/11 15:17:26 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:36:48 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_min_characters(t_map *map)
 	}
 	if (map->collectable < 1 || map->player != 1 || map->exit != 1)
 	{
-		ft_printf("Error\nInvalid Map: Must have 1 player, 1 exit and at least 1 collectable\n");
+		ft_printf("Error\nInvalid Map: Must have 1 P, 1 E and at least 1 C\n");
 		return (0);
 	}
 	return (1);

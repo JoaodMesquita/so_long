@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 10:13:30 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/11 15:57:18 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:37:57 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,3 @@ int	check_map(int ac, char **av)
 		return (0);
 	return (1);
 }
-

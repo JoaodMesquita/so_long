@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   valid_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:35:55 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/11 15:21:01 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:39:02 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void player_position(t_map *map)
+void	player_position(t_map *map)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = 0;
 	while (y < map->height - 1)
@@ -34,7 +34,7 @@ void player_position(t_map *map)
 	}
 }
 
-void flood_fill(t_map *map, int x, int y)
+void	flood_fill(t_map *map, int x, int y)
 {
 	if (x < 0 || y < 0 || x > map->width || y > map->height)
 		return ;
@@ -60,7 +60,7 @@ void flood_fill(t_map *map, int x, int y)
 
 int	valid_exit(t_map *map, char *file_name)
 {
-	int collectable;
+	int	collectable;
 
 	collectable = map->collectable;
 	player_position(map);

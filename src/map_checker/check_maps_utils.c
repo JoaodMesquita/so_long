@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_maps_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 09:29:31 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/11 15:58:49 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:34:12 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	initialize(t_map *map)
 	map->start_y = 0;
 }
 
-void str_trim(char *str)
+void	str_trim(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -38,7 +38,7 @@ void str_trim(char *str)
 	}
 }
 
-void free_map(t_map *map)
+void	free_map(t_map *map)
 {
 	int	i;
 
