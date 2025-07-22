@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:18:28 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/02 14:45:05 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/22 15:44:00 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ int	handle_input(int keysym, t_data *data)
 		mlx_destroy_window(data->mlx, data->mlx_win);
 	}
 	return (0);
-}
+} */
 
 

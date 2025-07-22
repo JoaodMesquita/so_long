@@ -6,14 +6,13 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 10:36:51 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/11 15:46:40 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/22 15:39:47 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-#define WIN_WIDTH 800
-#define WIN_HEIGHT 600
+#define TILE_SIZE 64
 
 # include "../mlx-linux/mlx.h"
 #include <X11/keysym.h>
@@ -27,41 +26,35 @@ typedef struct s_map
 	int	player;
 	int	exit;
 	int	floor;
-	int	start_x;
-	int	start_y;
+	int	start_x; //flood fill
+	int	start_y; // flood fill
 	char	**design;
 }			t_map;
 
-
-typedef struct s_player
+typedef struct s_data
 {
 	int	*img;
 	int	img_width;
 	int	img_height;
 	int	x;
 	int	y;
-}			t_player;
-
-typedef struct s_data
-{
-	int		x;
-	int 	y;
-	void	*mlx;
-	void	*mlx_win;
-	void	*img;
-	int	img_width;
-	int	img_height;
-}			t_data;
+}			t_data;  
 
 typedef struct s_game
 {
-	t_player *player;
-	t_data *data;
+	void *mlx;
+	void *mlx_win;
 }			t_game;
+
+typedef struct s_player
+{
+	int		x;
+	int		y;
+}			t_player;
 
 int		handle_input(int keysym, t_data *data);
 int		player_moves(int keysym, t_game *game);
-int		check_map(int ac, char **av);
+int		check_map(int ac, char **av, t_map *map);
 int		check_args(int ac);
 int		check_map_name(char *file_name);
 int		check_min_characters(t_map *map);
@@ -76,5 +69,12 @@ int		valid_exit(t_map *map, char *file_name);
 void	player_position(t_map *map);
 void	flood_fill(t_map *map, int x, int y);
 void	free_map(t_map *map);
+void	map_render(t_map *map, t_data *data, t_game *game);
+int		floor_img(t_data *data, t_game *game, int x, int y);
+int		player_img(t_data *data, t_game *game, int x, int y);
+int		exit_img (t_data *data, t_game *game, int x, int y);
+int		wall_img (t_data *data, t_game *game, int x, int y);
+int		collectible_img (t_data *data, t_game *game, int x, int y);
+void	render_tile(char tile, t_data *data , t_game *game, int x, int y);
 
 #endif
