@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 10:36:51 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/22 15:39:47 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/25 10:28:00 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../mlx-linux/mlx.h"
 #include <X11/keysym.h>
 #include "../lib/lib.h"
-
+# include <X11/X.h>
 typedef struct s_map
 {
 	int	width;
@@ -44,6 +44,7 @@ typedef struct s_game
 {
 	void *mlx;
 	void *mlx_win;
+	t_map	*map;
 }			t_game;
 
 typedef struct s_player
@@ -52,8 +53,12 @@ typedef struct s_player
 	int		y;
 }			t_player;
 
-int		handle_input(int keysym, t_data *data);
-int		player_moves(int keysym, t_game *game);
+int		handle_input(int keysym, t_map *map, t_data *data, t_game *game);
+int		key_arrows(int keysym, t_map *map, t_data *data, t_game *game);
+void	move_up(t_map *map, t_data *data, t_game *game);
+void	move_right(t_map *map, t_data *data, t_game *game);
+void	move_down(t_map *map, t_data *data, t_game *game);
+void	move_left(t_map *map, t_data *data, t_game *game);
 int		check_map(int ac, char **av, t_map *map);
 int		check_args(int ac);
 int		check_map_name(char *file_name);
