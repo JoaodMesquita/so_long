@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 11:08:07 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 15:33:00 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:55:19 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int ac, char **av)
 		return (0);
 	if (!map.mlx_win)
 		return (0);
-	
 	map_render(&map);
 	mlx_hook(map.mlx_win, KeyPress, KeyPressMask, &handle_input, &map);
 	mlx_hook(map.mlx_win, DestroyNotify, 0, ft_quit, &map);

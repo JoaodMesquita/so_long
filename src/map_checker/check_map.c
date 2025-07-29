@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 09:25:47 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 15:03:06 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/29 21:01:09 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	check_min_characters(t_map *map)
 }
 
 int	check_map_name(char *file_name)
-{	
+{
 	if (ft_strrchr(file_name, '/'))
 	{
 		file_name = ft_strrchr(file_name, '/');

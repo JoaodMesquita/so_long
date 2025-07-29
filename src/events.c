@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:18:28 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 15:41:33 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:54:15 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_quit(t_map *map)
 		mlx_destroy_image(map->mlx, map->img_exit);
 	if (map->mlx_win)
 		mlx_destroy_window(map->mlx, map->mlx_win);
-	if(map)
+	if (map)
 		free_map(map);
 	if (map->mlx)
 	{
@@ -55,7 +55,7 @@ int	arrow_handler(int keysym, t_map *map)
 	{
 		move_up(map);
 	}
-	if (keysym == XK_Down)		
+	if (keysym == XK_Down)
 	{
 		move_down(map);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 10:13:30 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 15:19:31 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/29 21:02:21 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_fd(char *file_name)
 {
 	int	fd;
-	
+
 	fd = open(file_name, O_RDWR);
 	if (fd < 0)
 	{
@@ -52,7 +52,7 @@ void	map_read(char *file_name, t_map *map)
 
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
-		return (exit(1)) ;
+		return (exit(1));
 	map->design = malloc(map->height * sizeof(char *));
 	if (!map->design)
 	{

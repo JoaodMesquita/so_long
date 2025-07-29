@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   player_movements.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 10:42:41 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 11:08:30 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/29 21:04:26 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static void	winning_Message(t_map *map)
+static void	winning_message(t_map *map)
 {
 	map->moves++;
 	ft_printf("You did: %d moves\n", map->moves);
@@ -37,7 +37,7 @@ void	move_up(t_map *map)
 		return ;
 	if (map->design[y - 1][x] == 'E' && map->collectable == 0)
 	{
-		winning_Message(map);
+		winning_message(map);
 		ft_quit(map);
 	}
 	map->design[y][x] = '0';
@@ -66,7 +66,7 @@ void	move_right(t_map *map)
 		return ;
 	if (map->design[y][x + 1] == 'E' && map->collectable == 0)
 	{
-		winning_Message(map);
+		winning_message(map);
 		ft_quit(map);
 	}
 	map->design[y][x] = '0';
@@ -95,7 +95,7 @@ void	move_down(t_map *map)
 		return ;
 	if (map->design[y + 1][x] == 'E' && map->collectable == 0)
 	{
-		winning_Message(map);
+		winning_message(map);
 		ft_quit(map);
 	}
 	map->design[y][x] = '0';
@@ -124,7 +124,7 @@ void	move_left(t_map *map)
 		return ;
 	if (map->design[y][x - 1] == 'E' && map->collectable == 0)
 	{
-		winning_Message(map);
+		winning_message(map);
 		ft_quit(map);
 	}
 	map->design[y][x] = '0';

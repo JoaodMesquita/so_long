@@ -3,42 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 10:36:51 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 10:48:00 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/29 21:06:29 by jpmesquita       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-#define SIZE 64
+
+# define SIZE 64
 
 # include "../mlx-linux/mlx.h"
-#include <X11/keysym.h>
-#include "../lib/lib.h"
+# include <X11/keysym.h>
+# include "../lib/lib.h"
 # include <X11/X.h>
 
 typedef struct s_map
 {
-	int	width;
-	int	height;
-	int	collectable;
-	int	player;
-	int	exit;
-	int	floor;
-	int	start_x;
-	int	start_y;
-	int	moves;
-	int	*img_player;
-	int	*img_collectible;
-	int	*img_wall;
-	int	*img_exit;
-	int	*img_floor;
-	int	img_width;
-	int	img_height;
-	int	x;
-	int	y;
+	int		width;
+	int		height;
+	int		collectable;
+	int		player;
+	int		exit;
+	int		floor;
+	int		start_x;
+	int		start_y;
+	int		moves;
+	int		*img_player;
+	int		*img_collectible;
+	int		*img_wall;
+	int		*img_exit;
+	int		*img_floor;
+	int		img_width;
+	int		img_height;
+	int		x;
+	int		y;
 	void	*mlx;
 	void	*mlx_win;
 	char	**design;
