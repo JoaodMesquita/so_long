@@ -6,11 +6,25 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 10:13:30 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/22 15:12:47 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:19:31 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+int	check_fd(char *file_name)
+{
+	int	fd;
+	
+	fd = open(file_name, O_RDWR);
+	if (fd < 0)
+	{
+		ft_printf("No such file: '%s'", file_name);
+		return (0);
+	}
+	close (fd);
+	return (1);
+}
 
 void	map_height(char *file_name, t_map *map)
 {
@@ -19,7 +33,7 @@ void	map_height(char *file_name, t_map *map)
 
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
-		return ;
+		return (exit(1));
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -38,7 +52,7 @@ void	map_read(char *file_name, t_map *map)
 
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
-		return ;
+		return (exit(1)) ;
 	map->design = malloc(map->height * sizeof(char *));
 	if (!map->design)
 	{
@@ -59,25 +73,23 @@ int	map_shape(t_map *map)
 	int	i;
 	int	width;
 
-	i = 0;
-	while (i < map->height)
-	{
+	i = -1;
+	while (++i < map->height - 1)
 		str_trim(map->design[i]);
-		i++;
-	}
 	i = 0;
 	width = ft_strlen(map->design[i]);
 	while (i < map->height)
 	{
 		if ((width != ft_strlen(map->design[i]) && (map->design[i] != NULL)))
 		{
-			ft_printf("Erro\nMap is not rectangular.\n");
+			ft_printf("Error\nMap is not rectangular.\n");
 			return (0);
 		}
 		i++;
 	}
 	map->width = width;
-	if ((map->width < 5 && map->height < 3) || (map->width < 3 && map->height < 5))
+	if ((map->width < 5 && map->height < 3)
+		|| (map->width < 3 && map->height < 5))
 	{
 		ft_printf("Error\nMap is not rectangular.\n");
 		return (0);
@@ -88,6 +100,8 @@ int	map_shape(t_map *map)
 int	check_map(int ac, char **av, t_map *map)
 {
 	if (!check_args(ac))
+		return (0);
+	if (!check_fd(av[1]))
 		return (0);
 	if (!check_map_name(av[1]))
 		return (0);
@@ -109,4 +123,3 @@ int	check_map(int ac, char **av, t_map *map)
 		return (0);
 	return (1);
 }
-

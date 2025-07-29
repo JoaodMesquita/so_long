@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 09:29:31 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/22 14:45:22 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/29 10:49:17 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	initialize(t_map *map)
 	map->exit = 0;
 	map->start_x = 0;
 	map->start_y = 0;
+	map->moves = 0;
 }
 
 void str_trim(char *str)

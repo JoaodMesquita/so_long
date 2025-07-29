@@ -6,7 +6,7 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:35:55 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/22 14:47:03 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/28 10:24:49 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void player_position(t_map *map)
 	int x;
 
 	y = 0;
-	while (y < map->height - 1)
+	while (y < map->height)
 	{
 		x = 0;
-		while (x < map->width - 1)
+		while (x < map->width)
 		{
 			if (map->design[y][x] == 'P')
 			{
@@ -36,7 +36,7 @@ void player_position(t_map *map)
 
 void flood_fill(t_map *map, int x, int y)
 {
-	if (x < 0 || y < 0 || x > map->width || y > map->height)
+	if (x < 0 || y < 0 || x >= map->width || y >= map->height)
 		return ;
 	if (map->design[y][x] == '1' || map->design[y][x] == 'F')
 		return ;

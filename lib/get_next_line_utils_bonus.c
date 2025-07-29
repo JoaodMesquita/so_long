@@ -6,13 +6,13 @@
 /*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 09:27:32 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/09 11:42:41 by joapedro         ###   ########.fr       */
+/*   Updated: 2025/07/28 15:34:20 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
 
-int	gnl_ft_strlen(char *s)
+int	g_strlen(char *s)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ char	*gnl_ft_strchr(char *s, int c)
 	int		len;
 	int		i;
 
-	len = gnl_ft_strlen(s);
+	len = g_strlen(s);
 	c = (unsigned char)c;
 	i = 0;
 	while (i <= len)
@@ -51,7 +51,7 @@ char	*ft_strjoin(char *line, char *read_buffer)
 	int		i;
 	int		j;
 
-	str = malloc((gnl_ft_strlen(line) + gnl_ft_strlen(read_buffer) + 1) * sizeof(char));
+	str = malloc((g_strlen(line) + g_strlen(read_buffer) + 1) * sizeof(char));
 	if (!str)
 	{
 		free(str);
@@ -64,7 +64,7 @@ char	*ft_strjoin(char *line, char *read_buffer)
 		i++;
 	}
 	j = 0;
-	while (j < gnl_ft_strlen(read_buffer))
+	while (j < g_strlen(read_buffer))
 	{
 		str[i + j] = read_buffer[j];
 		j++;

@@ -1,18 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player_movements.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 10:42:41 by joapedro          #+#    #+#             */
+/*   Updated: 2025/07/29 11:08:30 by joapedro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../so_long.h"
 
-// if any arrow is pressed, the player must move toward the arrow is pointing;
-// if key pressed and there is a wall in front, player cant move (collision);
-// if key pressed and there is a collectible, img of collectible must be replaced by floor, and map->collectable must --;
-// if there is an exit, player img gets destroyed, message of winning shows up.... 
-
-void move_up(t_map *map, t_data *data, t_game *game)
+static void	winning_Message(t_map *map)
 {
-	int y;
-	int x;
+	map->moves++;
+	ft_printf("You did: %d moves\n", map->moves);
+	ft_printf("You are an inspiration to all of us\n");
+}
+
+void	move_up(t_map *map)
+{
+	int	y;
+	int	x;
 
 	y = map->start_y;
 	x = map->start_x;
-
 	if (map->design[y - 1][x] == '1')
 		return ;
 	if (map->design[y - 1][x] == 'C')
@@ -20,64 +33,28 @@ void move_up(t_map *map, t_data *data, t_game *game)
 		map->collectable--;
 		map->design[y - 1][x] = '0';
 	}
+	if (map->design[y - 1][x] == 'E' && map->collectable > 0)
+		return ;
 	if (map->design[y - 1][x] == 'E' && map->collectable == 0)
 	{
-		ft_printf("You are an inspiration to all of us");
+		winning_Message(map);
+		ft_quit(map);
 	}
-	map_render(map, data, game);
+	map->design[y][x] = '0';
+	map->design[y - 1][x] = 'P';
+	map->start_y = y - 1;
+	map->moves++;
+	ft_printf("You did: %d moves\n", map->moves);
+	map_render(map);
 }
-void move_right(t_map *map, t_data *data, t_game *game)
+
+void	move_right(t_map *map)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = map->start_y;
 	x = map->start_x;
-
-	if (map->design[y][x - 1] == '1')
-		return ;
-	if (map->design[y][x - 1] == 'C')
-	{
-		map->collectable--;
-		map->design[y][x - 1] = '0';
-	}
-	if (map->design[y][x - 1] == 'E' && map->collectable == 0)
-	{
-		ft_printf("You are an inspiration to all of us");
-	}
-	map_render(map, data, game);
-}
-
-void move_down(t_map *map, t_data *data, t_game *game)
-{
-	int y;
-	int x;
-	
-	y = map->start_y;
-	x = map->start_x;
-	
-	if (map->design[y + 1][x] == '1')
-	return ;
-	if (map->design[y + 1][x] == 'C')
-	{
-		map->collectable--;
-		map->design[y + 1][x] = '0';
-	}
-	if (map->design[y + 1][x] == 'E' && map->collectable == 0)
-	{
-		ft_printf("You are an inspiration to all of us");
-	}
-	map_render(map, data, game);
-}
-
-void move_left(t_map *map, t_data *data, t_game *game)
-{
-	int y;
-	int x;
-
-	y = map->start_y;
-	x = map->start_x;
-
 	if (map->design[y][x + 1] == '1')
 		return ;
 	if (map->design[y][x + 1] == 'C')
@@ -85,9 +62,75 @@ void move_left(t_map *map, t_data *data, t_game *game)
 		map->collectable--;
 		map->design[y][x + 1] = '0';
 	}
+	if (map->design[y][x + 1] == 'E' && map->collectable > 0)
+		return ;
 	if (map->design[y][x + 1] == 'E' && map->collectable == 0)
 	{
-		ft_printf("You are an inspiration to all of us");
+		winning_Message(map);
+		ft_quit(map);
 	}
-	map_render(map, data, game);
+	map->design[y][x] = '0';
+	map->design[y][x + 1] = 'P';
+	map->start_x = x + 1;
+	map->moves++;
+	ft_printf("You did: %d moves\n", map->moves);
+	map_render(map);
+}
+
+void	move_down(t_map *map)
+{
+	int	y;
+	int	x;
+
+	y = map->start_y;
+	x = map->start_x;
+	if (map->design[y + 1][x] == '1')
+		return ;
+	if (map->design[y + 1][x] == 'C')
+	{
+		map->collectable--;
+		map->design[y + 1][x] = '0';
+	}
+	if (map->design[y + 1][x] == 'E' && map->collectable > 0)
+		return ;
+	if (map->design[y + 1][x] == 'E' && map->collectable == 0)
+	{
+		winning_Message(map);
+		ft_quit(map);
+	}
+	map->design[y][x] = '0';
+	map->design[y + 1][x] = 'P';
+	map->start_y = y + 1;
+	map->moves++;
+	ft_printf("You did: %d moves\n", map->moves);
+	map_render(map);
+}
+
+void	move_left(t_map *map)
+{
+	int	y;
+	int	x;
+
+	y = map->start_y;
+	x = map->start_x;
+	if (map->design[y][x - 1] == '1')
+		return ;
+	if (map->design[y][x - 1] == 'C')
+	{
+		map->collectable--;
+		map->design[y][x - 1] = '0';
+	}
+	if (map->design[y][x - 1] == 'E' && map->collectable > 0)
+		return ;
+	if (map->design[y][x - 1] == 'E' && map->collectable == 0)
+	{
+		winning_Message(map);
+		ft_quit(map);
+	}
+	map->design[y][x] = '0';
+	map->design[y][x - 1] = 'P';
+	map->start_x = x - 1;
+	map->moves++;
+	ft_printf("You did: %d moves\n", map->moves);
+	map_render(map);
 }
