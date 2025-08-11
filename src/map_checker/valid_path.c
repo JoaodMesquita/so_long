@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
+/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:35:55 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 21:03:03 by jpmesquita       ###   ########.fr       */
+/*   Updated: 2025/08/11 10:14:39 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiles.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
+/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:22:36 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 20:58:49 by jpmesquita       ###   ########.fr       */
+/*   Updated: 2025/08/11 10:16:45 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	floor_img(t_map *map, int x, int y)
 {
 	char	*floor_path;
 
-	floor_path = "sprites/floor.xpm";
+	floor_path = "textures/floor.xpm";
 	if (map->img_floor)
 		mlx_destroy_image(map->mlx, map->img_floor);
 	map->img_floor = mlx_xpm_file_to_image(map->mlx,
@@ -32,7 +32,7 @@ int	player_img(t_map *map, int x, int y)
 {
 	char	*player_path;
 
-	player_path = "sprites/samurai_jack.xpm";
+	player_path = "textures/samurai_jack.xpm";
 	if (map->img_player)
 		mlx_destroy_image(map->mlx, map->img_player);
 	map->img_player = mlx_xpm_file_to_image(map->mlx,
@@ -48,7 +48,7 @@ int	exit_img(t_map *map, int x, int y)
 {
 	char	*exit_path;
 
-	exit_path = "sprites/door.xpm";
+	exit_path = "textures/door.xpm";
 	if (map->img_exit)
 		mlx_destroy_image(map->mlx, map->img_exit);
 	map->img_exit = mlx_xpm_file_to_image(map->mlx,
@@ -64,7 +64,7 @@ int	collectible_img(t_map *map, int x, int y)
 {
 	char	*collectible_path;
 
-	collectible_path = "sprites/collectible.xpm";
+	collectible_path = "textures/collectible.xpm";
 	if (map->img_collectible)
 		mlx_destroy_image(map->mlx, map->img_collectible);
 	map->img_collectible = mlx_xpm_file_to_image(map->mlx,
@@ -80,7 +80,7 @@ int	wall_img(t_map *map, int x, int y)
 {
 	char	*wall_path;
 
-	wall_path = "sprites/wall.xpm";
+	wall_path = "textures/wall.xpm";
 	if (map->img_wall)
 		mlx_destroy_image(map->mlx, map->img_wall);
 	map->img_wall = mlx_xpm_file_to_image(map->mlx,

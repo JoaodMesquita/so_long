@@ -5,48 +5,33 @@
 #                                                     +:+ +:+         +:+      #
 #    By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/20 10:37:04 by joapedro          #+#    #+#              #
-#    Updated: 2025/08/11 14:36:47 by joapedro         ###   ########.fr        #
+#    Created: 2025/05/02 10:12:33 by joapedro          #+#    #+#              #
+#    Updated: 2025/07/22 13:07:16 by joapedro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long
+NAME = libft.a
 
-SRC = src/main.c src/events.c src/map_render.c src/tiles.c src/map_checker/parsing.c src/map_checker/check_map.c src/map_checker/check_maps_utils.c src/map_checker/valid_path.c src/movements/player_movements.c
+SRC = $(addsuffix .c, ft_strstr ft_putchar ft_putstr ft_printf ft_putnbr ft_unsigned_putnbr ft_puthexa ft_puthexa_big ft_pointer get_next_line_bonus get_next_line_utils_bonus ft_strchr ft_strrchr ft_strlen ft_strncmp ft_strcmp ft_memset)
+
 OBJS := $(SRC:%.c=%.o)
 
 CC = cc
+
 RM = rm -f
 
-MLX_LIB = mlx-linux/libmlx_Linux.a
-LIBFT = libft/libft.a
+CCFLAGS = -Wall -Werror -Wextra -g
 
-CFLAGS = -Wall -Wextra -Werror -Imlx_linux -g
-
-MLX_FLAGS 	= -L ./lib/mlx -L/usr/lib/X11 -lXext -lX11
-
-all: $(MLX_LIB) $(LIBFT) $(NAME)
-
-$(MLX_LIB):
-	make -C mlx-linux
-
-$(LIBFT):
-	make -C libft
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(MLX_LIB) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	ar rcs $(NAME) $(OBJS)
 
 clean:
-	make -C mlx-linux/ clean
-	make -C libft/ clean
 	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
-	make -C libft/ fclean
 
 re: fclean all
 

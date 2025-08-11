@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_maps_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
+/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 09:29:31 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 21:00:22 by jpmesquita       ###   ########.fr       */
+/*   Updated: 2025/08/11 10:14:45 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
+/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 10:13:30 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 21:02:21 by jpmesquita       ###   ########.fr       */
+/*   Updated: 2025/08/11 13:47:28 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ void	map_height(char *file_name, t_map *map)
 			break ;
 		free(line);
 		map->height++;
+	}
+	if (map->height == 0)
+	{
+		close(fd);
+		ft_printf("Error\nEmpty file\n");
+		return (exit(1));
 	}
 	close(fd);
 }
@@ -117,7 +123,7 @@ int	check_map(int ac, char **av, t_map *map)
 	if (!walls(map))
 	{
 		ft_printf("Error\nInvalid Walls\n");
-		return (1);
+		return (0);
 	}
 	if (!valid_exit(map, av[1]))
 		return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_movements.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
+/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 10:42:41 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 21:04:26 by jpmesquita       ###   ########.fr       */
+/*   Updated: 2025/08/11 10:15:02 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

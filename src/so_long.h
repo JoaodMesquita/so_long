@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpmesquita <jpmesquita@student.42.fr>      +#+  +:+       +#+        */
+/*   By: joapedro <joapedro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 10:36:51 by joapedro          #+#    #+#             */
-/*   Updated: 2025/07/29 21:06:29 by jpmesquita       ###   ########.fr       */
+/*   Updated: 2025/08/11 10:16:37 by joapedro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # include "../mlx-linux/mlx.h"
 # include <X11/keysym.h>
-# include "../lib/lib.h"
+# include "../libft/libft.h"
 # include <X11/X.h>
 
 typedef struct s_map
